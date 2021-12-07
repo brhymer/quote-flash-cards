@@ -1,38 +1,147 @@
-.App {
+body { 
+  position: relative;
+  z-index: 2;
+  background: #ececec;
+}
+
+.answer {
+  display: block;
+
+}
+
+.card {
+  transition: all 1s ease;
+  border: 1px solid blue;
+  border-radius: 5px;
+  font-size: 10px;
+  max-width: 200px;
+  cursor: pointer;
+  min-height: 300px;
+  max-height: 350px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.card-text{
+  transition: all 1s ease;
+  opacity: 1;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px 2px rgb(0, 255, 183);
+}
+
+.center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: flex;
+  margin: 30px 10%;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.face {
+  background-image: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.no-display {
+  max-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.reverse {
+  background-color: #444cf7;
+  background-image:  linear-gradient(135deg, #444cf7 25%, transparent 25%), linear-gradient(225deg, #444cf7 25%, transparent 25%), linear-gradient(45deg, #444cf7 25%, transparent 25%), linear-gradient(315deg, #444cf7 25%, #e5e5f7 25%);
+  background-size: 10px 10px;
+  background-repeat: repeat;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.reset-button {
+  font-size: 18px;
+  background: rgb(30, 127, 30);
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+} 
+
+.submit-button {
+  font-size: 18px;
+  background: rgb(13, 40, 213);
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#default-answer {
+  display: none;
+}
+
+#loading-icon {
+  height: 200px;
+  margin: auto;
+  width: 200px;
+  overflow: hidden;
+  animation: spin 5000ms infinite linear; 
+}
+
+#modal-content {
+  margin: 0 30%;
+  padding: 200px 0;
+  background: white;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+#question-area {
+  overflow: hidden;
+  align-self: flex-start;
+  padding-left: 40px
+}
+
+#result-modal {
+  z-index: -1;
+  position: absolute; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  overflow: auto;
+  background-color: white; 
+  opacity: 0;
+  transition: all .5s ease;
+  height: 100%;
+  display: flex;
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+      transform:rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform:rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 479px) {
+  .card {
+    font-size: 8px;
+    min-height: 100px;
+    max-height: 200px;
+  }
+  #question-area {
+    padding-left: 0px;
   }
 }

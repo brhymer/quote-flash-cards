@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Cardarea from './components/CardArea';
 
 function App() {
+  const[quotes, setQuotes] = useState([]);
+  const reloadPage=()=>{
+      window.location.reload();
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <div id="result-modal">
+        <div id="modal-content">
+          <h1 id="result">No content</h1>
+          <button className="reset-button" onClick={reloadPage}>Click here to try again!</button>
+        </div>
+      </div>
+      <h1 className="center">Guess who said... </h1>
+      <Cardarea setQuotes = {setQuotes} quotes = {quotes}/>
+
     </div>
   );
 }
